@@ -1,25 +1,33 @@
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 
-class EmailAuth:
-    """ Authenticate a user by an exact match on email """
-    
-    def authenticate(self, username=None, password=None):
-        """Get instance of user based off the email and verify the password"""
-        try:
-            user = User.objects.get(email=username)
-            
-            if user.check_password(password):
-                return user
+class CaseInsensitiveAuth:
+    def authenticate(self, username_or_email=None, password=None):
+        """
+        Get an instance of User using the supplied username
+        or email (case insensitive) and verify the password
+        """
+        # Filter all users by searching for a match by username/ email.
+        users = User.objects.filter(Q(username__iexact=username_or_email) |
+                                    Q(email__iexact=username_or_email))
+        if not users:
             return None
-        except User.DoesNotExist:
-            return None
-        
+
+        # Then get the first result of the query (which is your user).
+        user = users[0]
+        # If the password is correct, return user object
+        if user.check_password(password):
+            return user
+
+        return None
+
     def get_user(self, user_id):
-        """ User by the django auth system to retrive user instance"""
+        """
+        Used by the Django authentication system to retrieve a User instance
+        """
         try:
             user = User.objects.get(pk=user_id)
-            
             if user.is_active:
                 return user
             return None
