@@ -1,7 +1,20 @@
 {% extends 'base.html' %} {% block content %}
 <div class="display">
     <form action="{% url 'search' %}" method="get">
-        <input type="text" name="q">
+        <label for="search">Search:</label>
+        <input id="search" type="text" name="q">
+        <button type="search">Search</button>
+    </form>
+</div>
+<div class="display">
+    <form action="{% url 'categories' %}" method="get">
+        <label for="categories">Choose a category:</label>
+
+        <select id="categories" name="x">
+            {% for product in products %}
+            <option value="">{{ product.CATEGORIES }}</option>
+            {% endfor %}
+        </select>
         <button type="search">Search</button>
     </form>
 </div>
