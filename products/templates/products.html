@@ -6,18 +6,20 @@
         <button type="search">Search</button>
     </form>
 </div>
+
 <div class="display">
     <form action="{% url 'categories' %}" method="get">
         <label for="categories">Choose a category:</label>
 
-        <select id="categories" name="x">
+        <select id="categories" name="q">
             {% for product in products %}
-            <option value="">{{ product.CATEGORIES }}</option>
+            <option value="">{{ product.categories }}</option>
             {% endfor %}
         </select>
         <button type="search">Search</button>
     </form>
 </div>
+
 <div class="row row-flex">
     {% for product in products %}
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
@@ -25,6 +27,7 @@
             <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
 
             <h3>{{ product.name }}</h3>
+            <p class="product-categories">{{ product.categories }}</p>
             <p class="product-description">{{ product.description }}</p>
             <p>{{ product.price }}</p>
 

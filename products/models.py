@@ -10,7 +10,7 @@ class Product(models.Model):
         ('W', 'Women'),
         ('E', 'Equipment'),
     ]
-    categories = models.CharField(max_length=1, choices=CATEGORIES, default=False)
+    categories = models.CharField(max_length=1, choices=CATEGORIES, default=True)
 
     def __str__(self):
         return self.name
