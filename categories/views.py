@@ -1,7 +1,23 @@
-from django.shortcuts import render
-from products.models import Product
+from django import forms
+from products.models import CATEGORIES
 
-# Create your views here.
-def do_categories(request):
-    products = Product.objects.filter(categories__icontains=request.GET['q'])
-    return render(request, "products.html", {"products": products})
+class CategoryForm(forms.Form):
+    categories = forms.CharField(
+        widget=forms.Select(choices=CATEGORIES),
+    )
+
+
+
+
+
+
+
+#from django.forms import ModelForm
+#from products.models import Product
+#from categories.forms import MyModelForm
+#from django.shortcuts import render
+#
+#def CreateMyModelView(CreateView):
+ #   model = Product
+ #   form_class = MyModelForm
+ #   return render(Product, "products.html", {"form_class": form_class})

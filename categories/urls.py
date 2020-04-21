@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from .views import do_categories
+from .views import CategoryForm
 
 urlpatterns = [
-    url(r'^$', do_categories, name='categories')
+    url(r'^$', CategoryForm, name='categories')
 ]
