@@ -1,23 +1,21 @@
-from django import forms
-from products.models import CATEGORIES
+from django.shortcuts import render 
+from products.models import Product
+from .forms import  CategoryForm
 
-class CategoryForm(forms.Form):
-    categories = forms.CharField(
-        widget=forms.Select(choices=CATEGORIES),
-    )
+def do_categories(request):
+    products = Product.objects.filter(categories__icontains=request.GET['q'])
+    return render(request, "products.html", {"products": products})
+
+#def categories(request): 
+#    context = {} 
+#    form = CategoryForm()
+#   context['form'] = form
+#    if request.GET:
+#        temp = request.GET['categories_field']
+#        print(temp)
+#    
+#    return render( request, "products.html", context)
 
 
 
 
-
-
-
-#from django.forms import ModelForm
-#from products.models import Product
-#from categories.forms import MyModelForm
-#from django.shortcuts import render
-#
-#def CreateMyModelView(CreateView):
- #   model = Product
- #   form_class = MyModelForm
- #   return render(Product, "products.html", {"form_class": form_class})

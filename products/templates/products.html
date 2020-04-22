@@ -1,22 +1,22 @@
 {% extends 'base.html' %} {% block content %}
-<div class="display">
-    <form action="{% url 'search' %}" method="get">
+<div class="display col-sm-6">
+    <form action="{% url 'search' %}" method="get" >
         <label for="search">Search:</label>
-        <input id="search" type="text" name="q">
-        <button type="search">Search</button>
+        <input id="search" class="form-control" type="text" name="q">
+        <button type="submit" class="btn btn-success">Search</button>
     </form>
 </div>
 
-<div class="display">
+<div class="display col-sm-6">
     <form action="{% url 'categories' %}" method="get">
-        <label for="categories">Choose a category:</label>
-
-        <select id="categories" name="q">
-            {% for product in products %}
-            <option value="">{{ product.categories }}</option>
+        <label for="categories">Categories:</label>
+        <select class="form-control" name="q">
+            <option value="">All</option>
+            {% for Product in products %}
+            <option value="{{ Product.categories }}">{{ Product.categories }}</option>
             {% endfor %}
         </select>
-        <button type="search">Search</button>
+        <button type="submit" class="btn btn-success">Search</button>
     </form>
 </div>
 
