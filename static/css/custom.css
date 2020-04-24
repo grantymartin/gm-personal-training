@@ -32,6 +32,10 @@ footer {
     background-color: #c67605;
 }
 
+.search-button{
+    padding-top: 10px;
+}
+
 .product {
     background-size: contain;
     background-position: center center;

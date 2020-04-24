@@ -1,6 +1,6 @@
 from django.db import models
 
-CATEGORIES = (('M', 'Mens'),('W', 'Womens'),('E', 'Equipment'),)
+CATEGORIES = [('M', 'Mens'),('W', 'Womens'),('E', 'Equipment')]
 
 class Product(models.Model):
     name = models.CharField(max_length=254, default='')

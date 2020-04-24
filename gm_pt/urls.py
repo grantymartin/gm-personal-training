@@ -1,6 +1,7 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as urls_accounts
+from classes import urls as urls_classes
 from products import urls as urls_products
 from cart import urls as urls_cart
 from search import urls as urls_search
@@ -13,6 +14,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', all_products, name='index'),
     url(r'^accounts/', include(urls_accounts)),
+    url(r'^classes/', include(urls_classes)),
     url(r'^products/', include(urls_products)),
     url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),
