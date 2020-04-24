@@ -8,6 +8,7 @@ def email(request):
         get_email = Email_form(request.POST)
         
         if get_email.is_valid():
+            
 
             return HttpResponseRedirect('/submitted/')
 

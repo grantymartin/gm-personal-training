@@ -13,6 +13,12 @@
     <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("user_nfqsXFy1QuUTXbHiyeiph");
+        })();
+    </script>
 </head>
 
 <body>
@@ -30,12 +36,14 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Log Out</a></li>
-                        <li><a href="{% url 'classes' %}">Classes</a></li>
-                    {%  else %}
-                        <li><a href="{% url 'registration' %}">Register</a></li>
-                        <li><a href="{% url 'login' %}">Log In</a></li>
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    <li><a href="{% url 'classes' %}">Classes</a></li>
+                    <li><a href="/">Products</a></li>
+                    {% else %}
+                    <li><a href="{% url 'registration' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                    <li><a href="/">Products</a></li>
                     {% endif %}
                     <li>
                         <a href="{% url 'view_cart' %}">
@@ -50,13 +58,11 @@
         </div>
     </nav>
     {% if messages %}
-        <div class="alert alert-success">
-            <div class="messages">
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-            </div>
+    <div class="alert alert-success">
+        <div class="messages">
+            {% for message in messages %} {{ message }} {% endfor %}
         </div>
+    </div>
     {% endif %}
     <div class="container">
         {% block content %} {% endblock %}
@@ -67,4 +73,5 @@
         </div>
     </footer>
 </body>
+
 </html>
