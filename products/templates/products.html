@@ -12,9 +12,9 @@
         <label for="categories">Categories:</label>
         <select class="form-control" name="q">
             <option value="">All</option>
-            {% for Product in products %}
-            <option value="{{ Product.categories }}">{{ Product.categories }}</option>
-            {% endfor %}
+            <option value="M">Mens</option>
+            <option value="W">Womens</option>
+            <option value="M">Equipment</option>
         </select>
         <button type="submit" class="btn btn-success">Search</button>
     </form>
@@ -29,7 +29,6 @@
             <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
 
             <h3>{{ product.name }}</h3>
-            <p class="product-categories">{{ product.categories }}</p>
             <p class="product-description">{{ product.description }}</p>
             <p>{{ product.price }}</p>
 
