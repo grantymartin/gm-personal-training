@@ -4,11 +4,23 @@ body {
 }
 
 footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #ededed;
-    color: #A9A9A9;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+.bg-color {
+    background-color: lightblue;
+}
+
+.bg-item{
+    background-color: lightblue;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .icon-bar {
@@ -20,6 +32,10 @@ footer {
     height: auto;
     margin-left: auto;
     margin-right: auto;
+}
+
+.filters {
+    display: none;
 }
 
 .accountform {
@@ -40,7 +56,8 @@ footer {
 }
 
 .search-button {
-    padding-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .product {
@@ -65,11 +82,14 @@ caption p {
 .panel-default {
     border-color: transparent;
     padding: 0 10px;
+    background-color: lightblue;
 }
 
 .panel-body {
     height: 100%;
     border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
 }
 
 .product-description {

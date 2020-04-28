@@ -1,16 +1,16 @@
 {% extends 'base.html' %} {% load staticfiles %} {% load bootstrap_tags %} {% block content %}
-<h1>Book your next class now!</h1>
-<h3>Simply just complete the form below and I'll get back to you as soon as possible</h3>
-<form onsubmit="return sendMail(this);" id="sendMail">
-    {% csrf_token %} {{ get_email | as_bootstrap}}
-    <button type="submit" class="btn btn-success ">Send</button>
-</form>
-<div class="container">
-    <div class="row">
-        <img src="/static/images/classes-1.jpg" class="col-xs-4 center-block classes" alt="classes-1" />
-        <img src="/static/images/classes-2.jpg" class="col-xs-4 center-block classes" alt="classes-2" />
-        <img src="/static/images/classes-3.jpg" class="col-xs-4 center-block classes" alt="classes-3" />
-    </div>
+<div class="row bg-item">
+    <h1>Book your next class now!</h1>
+    <h3>Simply just complete the form below and I'll get back to you as soon as possible</h3>
+    <form onsubmit="return sendMail(this);" id="sendMail">
+        {% csrf_token %} {{ get_email | as_bootstrap}}
+        <button type="submit" class="btn btn-success center-block search-button">Send</button>
+    </form>
+</div>
+<div class="row">
+    <img src="/static/images/classes-1.jpg" class="col-xs-4 center-block classes" alt="classes-1" />
+    <img src="/static/images/classes-2.jpg" class="col-xs-4 center-block classes" alt="classes-2" />
+    <img src="/static/images/classes-3.jpg" class="col-xs-4 center-block classes" alt="classes-3" />
 </div>
 <script src="/static/js/emails.js"></script>
 {% endblock %}

@@ -1,23 +1,27 @@
 {% extends 'base.html' %} {% block content %}
-<div class="display col-sm-6">
-    <form action="{% url 'search' %}" class="text-center" method="get">
-        <label for="search">Search:</label>
-        <input id="search" class="form-control" type="text" name="q">
-        <button type="submit" class="btn btn-success ">Search</button>
-    </form>
-</div>
 
-<div class="display col-sm-6">
-    <form action="{% url 'categories' %}" class="text-center" method="get">
-        <label for="categories">Categories:</label>
-        <select class="form-control" name="q">
+<button class="filter center-block btn btn-primary">Filter Results</button>
+<div class="container">
+    <div class="display col-sm-6 options filters">
+        <form action="{% url 'search' %}" class="text-center" method="get">
+            <label for="search">Search:</label>
+            <input id="search" class="form-control" type="text" name="q">
+            <button type="submit" class="btn btn-success search-button">Search</button>
+        </form>
+    </div>
+
+    <div class="display col-sm-6 options filters">
+        <form action="{% url 'categories' %}" class="text-center" method="get">
+            <label for="categories">Categories:</label>
+            <select class="form-control" name="q">
             <option value="">All</option>
             <option value="M">Mens</option>
             <option value="W">Womens</option>
             <option value="M">Equipment</option>
         </select>
-        <button type="submit" class="btn btn-success">Search</button>
-    </form>
+            <button type="submit" class="btn btn-success search-button">Search</button>
+        </form>
+    </div>
 </div>
 
 {{ Product }}
@@ -45,4 +49,5 @@
     </div>
     {% endfor %}
 </div>
+<script src="/static/js/custom.js"></script>
 {% endblock %}
