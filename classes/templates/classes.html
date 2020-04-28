@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-{% load bootstrap_tags %}{% block content %}
+{% load staticfiles %}
+{% load bootstrap_tags %}
+{% block content %}
 <h1>Book your next class now!</h1>
-<form onsubmit="return sendMail(this);">
+<form onsubmit="return sendMail(this);" id="sendMail">
     {% csrf_token %} {{ get_email | as_bootstrap}}
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
-
-<script src="classes/emails.js"></script>
+<script src="/static/js/emails.js"></script>
 {% endblock %}
 
