@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <title>GM-Personal Training</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/css/custom.css' %}">
@@ -21,56 +21,59 @@
             emailjs.init("user_nfqsXFy1QuUTXbHiyeiph");
         })();
     </script>
+    {% block head_js %} {% endblock head_js %}
 </head>
 
 <body class="bg-color">
-    <nav class="navbar navbar-masthead navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <div class="content">
+        <nav class="navbar navbar-masthead navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">GM-Personal-Training</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Log Out</a></li>
-                    <li><a href="{% url 'profile' %}">Profile</a></li>
-                    <li><a href="{% url 'classes' %}">Classes</a></li>
-                    <li><a href="/">Products</a></li>
-                    {% else %}
-                    <li><a href="{% url 'registration' %}">Register</a></li>
-                    <li><a href="{% url 'login' %}">Log In</a></li>
-                    <li><a href="/">Products</a></li>
-                    {% endif %}
-                    <li>
-                        <a href="{% url 'view_cart' %}">
+                    <a class="navbar-brand" href="/">GM-Personal-Training</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Log Out</a></li>
+                        <li><a href="{% url 'profile' %}">Profile</a></li>
+                        <li><a href="{% url 'classes' %}">Classes</a></li>
+                        <li><a href="/">Products</a></li>
+                        {% else %}
+                        <li><a href="{% url 'registration' %}">Register</a></li>
+                        <li><a href="{% url 'login' %}">Log In</a></li>
+                        <li><a href="/">Products</a></li>
+                        {% endif %}
+                        <li>
+                            <a href="{% url 'view_cart' %}">
                             <i class="fas fa-shopping-cart"></i>Cart
                             {% if product_count > 0 %}
                             <label class="badge badge-warning">{{ product_count }}</label>
                             {% endif %}
                         </a>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %} {{ message }} {% endfor %}
             </div>
         </div>
-    </nav>
-    {% if messages %}
-    <div class="alert alert-success">
-        <div class="messages">
-            {% for message in messages %} {{ message }} {% endfor %}
+        {% endif %}
+        <div class="container">
+            {% block content %} {% endblock %}
         </div>
     </div>
-    {% endif %}
-    <div class="container">
-        {% block content %} {% endblock %}
-    </div>
     <footer>
-        <div class="container">
+        <div class="container footer text-center">
             <h4>Made by Grant Martin</h4>
         </div>
     </footer>

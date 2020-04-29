@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% block content %}
-
+<h1 class="text-center title">Our products for you!</h1>
 <div class="row">
     <img src="/static/images/bg.png" class="center-block products-header" alt="weights" />
 </div>
-<button class="filter center-block btn btn-primary">Filter Results</button>
+<button class="filter center-block btn-lg btn-primary">Filter Results</button>
 
 <div class="container">
     <div class="display col-sm-6 options filters">
@@ -21,7 +21,7 @@
             <option value="">All</option>
             <option value="M">Mens</option>
             <option value="W">Womens</option>
-            <option value="M">Equipment</option>
+            <option value="E">Equipment</option>
         </select>
             <button type="submit" class="btn btn-success search-button">Search</button>
         </form>
@@ -32,13 +32,13 @@
 
 <div class="row row-flex">
     {% for product in products %}
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-3 display panel panel-default">
         <div class="panel-body">
             <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
 
             <h3>{{ product.name }}</h3>
             <p class="product-description">{{ product.description }}</p>
-            <p>{{ product.price }}</p>
+            <p>£{{ product.price }}</p>
 
             <form method="post" action="{% url 'add_to_cart' product.id %}">
                 {% csrf_token %}
@@ -53,5 +53,9 @@
     </div>
     {% endfor %}
 </div>
+<div class="row">
+    <img src="/static/images/bg.png" class="center-block products-header" alt="weights" />
+</div>
+
 <script src="/static/js/custom.js"></script>
 {% endblock %}

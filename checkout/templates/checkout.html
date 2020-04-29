@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block head_js %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %} {% block content %}
+<h1 class="text-center title">{{ user }}</h1>
+<div class="row row-flex">
+    {% for item in cart_items %}
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+        <div class="panel-body">
+            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+
+            <div class="caption">
+                <h3>{{ item.product.name }}</h3>
+                <p class="product-description">{{ item.product.description }}</p>
+                <p>{{ item.quantity }}</p>
+                <p>£{{ item.product.price }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-3 display panel panel-default">
+        <div class="panel-body">
+            <p>Total</p>
+            <p>£{{ total }}</p>
+        </div>
+    </div>
+</div>
+
+<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+    <legend>Payment Details</legend>
+
+    <div id="credit-card-errors" style="display: none;">
+        <div class="alert-message block-message error" id="stripe-error-message"></div>
+    </div>
+
+    <div class="form-group col-md-6">
+        {{ order_form | as_bootstrap }}
+    </div>
+
+    <div class="form-group col-md-6">
+        {{ payment_form | as_bootstrap }}
+    </div>
+
+    {% csrf_token %}
+    <div class="form-group col-md-12">
+        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+    </div>
+</form>
+
+<div class="row">
+    <img src="/static/images/classes-1.jpg" class="col-xs-4 center-block classes" alt="classes-1" />
+    <img src="/static/images/classes-2.jpg" class="col-xs-4 center-block classes" alt="classes-2" />
+    <img src="/static/images/classes-3.jpg" class="col-xs-4 center-block classes" alt="classes-3" />
+</div>
+{% endblock %}
