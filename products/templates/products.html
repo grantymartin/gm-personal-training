@@ -1,6 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="row">
+    <img src="/static/images/bg.png" class="center-block products-header" alt="weights" />
+</div>
 <button class="filter center-block btn btn-primary">Filter Results</button>
+
 <div class="container">
     <div class="display col-sm-6 options filters">
         <form action="{% url 'search' %}" class="text-center" method="get">

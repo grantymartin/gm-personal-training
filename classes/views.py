@@ -9,7 +9,6 @@ def email(request):
         
         if get_email.is_valid():
             
-
             return HttpResponseRedirect('/submitted/')
 
     else:

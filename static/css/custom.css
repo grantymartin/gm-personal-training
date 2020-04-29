@@ -13,6 +13,11 @@ footer {
   text-align: center;
 }
 
+.title{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 .bg-color {
     background-color: lightblue;
 }
@@ -21,6 +26,11 @@ footer {
     background-color: lightblue;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+
+.products-header{
+    height: 5vh;
+    width: auto;
 }
 
 .icon-bar {

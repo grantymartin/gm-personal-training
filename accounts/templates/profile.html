@@ -1,4 +1,18 @@
-{% extends 'base.html' %}{% block page_heading %}{{ user }}'s Profile{% endblock %} {% block content %}
-<p>Is your current email address: </p>
-{{ profile.email }}
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+    <img src="/static/images/bg.png" class="center-block products-header" alt="weights" />
+</div>
+<h1 class="text-center title">Welcome {{ user }}</h1>
+<h2 class="text-center">We're here to help you become better!</h2>
+<h3 class="text-center">Firstly we start with you. Head over to our classes page to and book your first class, but before you do, make sure we have the correct email for you! </h2>
+<h3 class="text-center">Is your current email address: </h3>
+<h3 class="text-center">{{ profile.email }}</h3>
+<h2 class="text-center">We can't wait to start working with you! </h2>
+<div class="row">
+    <img src="/static/images/profile-1.jpg" class="col-xs-4 center-block classes" alt="profile-1" />
+    <img src="/static/images/profile-2.jpg" class="col-xs-4 center-block classes" alt="profile-2" />
+    <img src="/static/images/profile-3.jpg" class="col-xs-4 center-block classes" alt="profile-3" />
+</div>
+<h3 class="text-center">We work with all shapes and sizes from the top level elite athlete to those who just want to feel more comfterble in their own body! </h3>
+<h1 class="text-center">We're here for you {{ user }}</h1>
 {% endblock %}
