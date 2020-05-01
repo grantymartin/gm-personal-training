@@ -35,6 +35,12 @@ footer {
     margin-bottom: 10px;
 }
 
+#map{
+    width: 80%;
+    height: 400px;
+    margin: 40px auto;
+}
+
 .products-header {
     height: 5vh;
     width: auto;
