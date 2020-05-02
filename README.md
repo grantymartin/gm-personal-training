@@ -86,7 +86,7 @@ Finally I asked them to do their best to break the site. When I did this it was 
 
 ## Deployment
 
-This site has been developed on AWS cloud 9 and continuoisly pushed to Github pages throughout the process. This site was then connected to Heroku to run the app live.
+This site has been developed on AWS cloud 9 and continuoisly pushed to Github pages throughout the process. This site was then connected to Heroku through Github to run the app live.
 
 ### Content
 
