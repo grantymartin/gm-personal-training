@@ -12,3 +12,4 @@ class TestClassesForm(TestCase):
     def  test_classes_form_all_filled(self):
         form = Email_form({'your_name':'testing','your_email':'youremail@msn.com','your_request':'testing'})
         self.assertTrue(form.is_valid())
+        

@@ -20,6 +20,10 @@ footer {
     padding-bottom: 2.5rem;
 }
 
+.register{
+    color: white;
+}
+
 .title {
     font-weight: bold;
     text-decoration: underline;
