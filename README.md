@@ -58,6 +58,8 @@ GitHub https://github.com/grantymartin/gm-personal-training has been used throug
 
 Heroku https://www.heroku.com Heroku allows me to create a link with the site running with a working application.
 
+Stripe https://stripe.com/gb Was used to make all payment methods on this site secure and reliable.
+
 ## Testing
 
 Testing for this site began with running the HTML and CSS through the W3C validator to confirm the code was clean and without error. If any errors showed up they were changed to show the correct HTML/CSS. 
