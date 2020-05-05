@@ -1,0 +1,1 @@
+web: gunicorn gm-personal-training.wsgi:application
