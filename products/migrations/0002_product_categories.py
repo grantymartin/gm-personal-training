@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='categories',
-            field=models.CharField(choices=[('M', 'Men'), ('W', 'Women'), ('E', 'Equipment')], default=False, max_length=1),
+            field=models.CharField(choices=[('M', 'Men'), ('W', 'Women'), ('E', 'Equipment')], default="M", max_length=1),
             preserve_default=False,
         ),
     ]
