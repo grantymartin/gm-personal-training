@@ -1,1 +1,1 @@
-web: gunicorn gm-personal-training.wsgi:application
+web: gunicorn gm_pt.wsgi:application
