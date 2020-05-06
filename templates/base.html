@@ -26,7 +26,7 @@
 
 <body class="bg-color">
     <div class="content">
-        <nav class="navbar navbar-masthead navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-masthead navbar-inverse  navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -35,28 +35,40 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                    <a class="navbar-brand" href="/">GM-Personal-Training</a>
+                    <a class="navbar-brand" href="/"><span class="nav-text">GM-Personal-Training</span></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
-                        <li><a href="{% url 'logout' %}">Log Out</a></li>
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'classes' %}">Classes</a></li>
-                        <li><a href="/">Products</a></li>
-                        {% else %}
-                        <li><a href="{% url 'registration' %}">Register</a></li>
-                        <li><a href="{% url 'login' %}">Log In</a></li>
-                        <li><a href="/">Products</a></li>
-                        {% endif %}
+                        <li><a href="/"><span class="nav-text">Products</span></a></li>
+                        <li><a href="{% url 'profile' %}"><span class="nav-text">Profile</span></a></li>
+                        <li><a href="{% url 'classes' %}"><span class="nav-text">Classes</span></a></li>
                         <li>
                             <a href="{% url 'view_cart' %}">
+                            <span class="nav-text">
                             <i class="fas fa-shopping-cart"></i>Cart
                             {% if product_count > 0 %}
                             <label class="badge badge-warning">{{ product_count }}</label>
                             {% endif %}
+                            </span>
                         </a>
                         </li>
+                        <li><a href="{% url 'logout' %}"><span class="nav-text">Log Out</span></a></li>
+                        {% else %}
+                        <li><a href="/">Products</a></li>
+                        <li><a href="{% url 'registration' %}"><span class="nav-text">Register</span></a></li>
+                        <li><a href="{% url 'login' %}"><span class="nav-text">Log In</span></a></li>
+                        <li>
+                            <a href="{% url 'view_cart' %}">
+                                <span class="nav-text">
+                            <i class="fas fa-shopping-cart"></i>Cart
+                            {% if product_count > 0 %}
+                            <label class="badge badge-warning">{{ product_count }}</label>
+                            {% endif %}
+                            </span>
+                        </a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

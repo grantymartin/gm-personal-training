@@ -16,6 +16,10 @@ footer {
    background-color: white; 
 }
 
+.nav-text {
+    color: white;
+}
+
 .content{
     padding-bottom: 2.5rem;
 }
