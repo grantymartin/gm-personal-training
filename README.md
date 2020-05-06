@@ -90,6 +90,10 @@ Finally I asked them to do their best to break the site. When I did this it was 
 
 This site has been developed on AWS cloud 9 and continuoisly pushed to Github pages throughout the process. This site was then connected to Heroku through Github to run the app live.
 
+### During deployment it was noticed that Django version used in this project was coming to an end in the supported community but as long as the correct python version was used it should continue to work as supposed to
+
+
+
 ### Content
 
 ............................................

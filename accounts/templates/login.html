@@ -2,7 +2,7 @@
 <h1>login</h1>
 <form method="POST">
     {% csrf_token %} {{ login_form | as_bootstrap}}
-    <button type="submit" class="btn btn-default">Login</button>
+    <button type="submit" class="btn-lg btn-primary">Login</button>
 </form>
 <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
 <h3>If you don't already have an account, sign up now!</h3>
