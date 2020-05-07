@@ -36,7 +36,7 @@ In the future I wish to have more ways to filter down the products for example b
 
 I also aim to add a calendar that displays available time slots for a user to book a session straight away and then also pay straight away rather than contact through email services.
 
-I would like for users to be able to add multiple diffrent products to the cart at the same time rather than addding each seperatlly.
+I would like for users to be able to add multiple different products to the cart at the same time rather than adding each separately.
 
 ## Technologies Used
 
@@ -60,48 +60,68 @@ Heroku https://www.heroku.com Heroku allows me to create a link with the site ru
 
 Stripe https://stripe.com/gb Was used to make all payment methods on this site secure and reliable.
 
+Postgres https://www.postgresql.org/ is the database we have used to store our data in from this site.
+
 ## Testing
 
-Testing for this site began with running the HTML and CSS through the W3C validator to confirm the code was clean and without error. If any errors showed up they were changed to show the correct HTML/CSS. 
+Testing for this site began with running the HTML and CSS through the W3C validator to confirm the code was clean and without error. If any errors showed up, they were changed to show the correct HTML/CSS. 
 
-Next up I wrote python tests for the forms created in Django, in the classes/checkout and account apps. These tests checked the deafults of the forms answers, checked to make sure the forms were fully filled out and to check they were completed with appropriate answers. 
+Next up I wrote python tests for the forms created in Django, in the classes/checkout and account apps. These tests checked the defaults of the form’s answers, checked to make sure the forms were fully filled out and to check they were completed with appropriate answers. 
 
 In the classes form I checked to make sure that the form had to be fully completed before being able to be sent away and to double check that if the form wasn't completed the appropriate message appeared for the user.
 
-In the checkout form again I check to make sure the form had to be fully completed and the appropriate message appeared for the user if it wasn't. I also completed the payment form manually on the checkout app with the Stripe test fill out form and it worked perfectly.
+In the checkout form I checked to make sure the form had to be fully completed and the appropriate message appeared for the user if it wasn't. I also completed the payment form manually on the checkout app with the Stripe test fill out form and it worked perfectly.
 
-In the account app there are a couple diffrent forms so I had to check diffrent things for each form. For the login form in accounts I simply checked to make sure that the form was fully filled out and the appropriate message appeared for the user again however for the registration form I checked more. I wrote code to test the email. If the email wasn't in the appropriate format, it wouldn't be accepted. I also tested the form so that it wouldn't accept it completed if both password1 and password2 didn't match perfectly. 
+In the account app there are a couple different forms so I had to check different things for each form. For the login form in accounts I simply checked to make sure that the form was fully filled out and the appropriate message appeared for the user again however for the registration form I checked more. I wrote code to test the email. If the email wasn't in the appropriate format, it wouldn't be accepted. I also tested the form so that it wouldn't accept it completed if both password1 and password2 didn't match perfectly. 
 
-I then went on to test the models in the checkout and products apps. in the Checkout form I wanted to make sure that the postcode could be left blank however everyother field had to be completed and filled in. I also checked that the date would be submitted in the correct format that I want it in.
+I then went on to test the models in the checkout and products apps. in the Checkout form I wanted to make sure that the postcode could be left blank however every other field had to be completed and filled in. I also checked that the date would be submitted in the correct format that I want it in.
 
 In the products app I checked the name, description, price and category were all being recorded properly and the defaults were correct.
 
-After testing my site with the W3C validator and the python testing code I tested it with 5 other people. I allowed each person to look through the site on diffrent devices of diffrent screen sizes and diffrent browsers. I then asked for feedback on design, ease of use, general functionallity and potential updates/improvments.
+After testing my site with the W3C validator and the python testing code I tested it with 5 other people. I allowed each person to look through the site on different devices of different screen sizes and different browsers. I then asked for feedback on design, ease of use, general functionality and potential updates/improvements.
 
-Feedback on design was positive with the site being prsented in a professional style, neat and clean. It looked good on all screen sizes from large desktop screens to small mobile devices. 
+Feedback on design was positive with the site being presented in a professional style, neat and clean. It looked good on all screen sizes from large desktop screens to small mobile devices. 
 
-Feedback on ease of use was again positive. In general everyone found what i asked them to find easy enough but some made a point that the classes should be more advitsed for user who are not logged in to promote the site. I took this feedback into consideration and changed the home products page to promote the classes of GM-Personal-Training as well. 
+Feedback on ease of use was again positive. In general, everyone found what I asked them to find easy enough but some made a point that the classes should be more advertised for user who are not logged in to promote the site. I took this feedback into consideration and changed the home products page to promote the classes of GM-Personal-Training as well. 
 
-Feedback on general functionallity was also positive. The login/ registration forms worked well, the classes contact form worked as supposed to and the adding to cart and removing from cart also worked. However it was pointed out to me that if something was added to the cart without putting a value in the quantity box, the site would produce an error. As for general improvements it was suggested to me that it would be good if i could add multiple diffrent items to my cart in one go rather than adding each spereatlly. I have added this idea to my future features section.
+Feedback on general functionality was also positive. The login/ registration forms worked well, the classes contact form worked as supposed to and the adding to cart and removing from cart also worked. However, it was pointed out to me that if something was added to the cart without putting a value in the quantity box, the site would produce an error. As for general improvements it was suggested to me that it would be good if I could add multiple different items to my cart in one go rather than adding each separately. I have added this idea to my future features section.
 
-Finally I asked them to do their best to break the site. When I did this it was pointed out to me that the functionallity of my reset email feature wasn't working properly.
+Finally, I asked them to do their best to break the site. When I did this, it was pointed out to me that the functionality of my reset email feature wasn't working properly and this is due to the fact my own email wasn't set up to allow less secure apps to connect to it.
+
+It was also pointed out that when adding a product to the cart and the quantity was on zero then the page returned an error page. So, to fix that I set a min, max and a starting value so that zero would never be an option to cause a problem.
 
 ## Deployment
 
-This site has been developed on AWS cloud 9 and continuoisly pushed to Github pages throughout the process. This site was then connected to Heroku through Github to run the app live.
+This site has been developed on AWS cloud 9 and continuously pushed to Github pages throughout the process. This site was then connected to Heroku through Github to run the app live. A postgres database was created on Heroku and linked with the page. The config variables were set with the IP equal to 0.0.0.0 and the PORT set to 5000. 
 
 ### During deployment it was noticed that Django version used in this project was coming to an end in the supported community but as long as the correct python version was used it should continue to work as supposed to
+
+All the static files including CSS, Images and JS are held using the AWS S3 bucket.  
 
 
 
 ### Content
 
-............................................
+All written content in this site was done by myself. The content of this site was written for the purpose of the Code institute Full Stack developers milestone project and the information provided may be false.
 
 ### Media
 
-............................................
+All photos used on this site came under the labelled for reuse section of google images and links to each are provided below.
+
+https://www.needpix.com/photo/635124/weight-sport-crossfit-training-workout-fitness-fit-gym-weight-training
+
+https://www.flickr.com/photos/floris-oosterveld/35562172343
+
+https://www.getsweatgo.com/workout/guides/guide-to-getting-a-personal-fitness-trainer-153
+
+https://man-man.nl/fitness-routine/
+
+https://nkpersonaltraining.nl/project/female-shape-programma/
+
+https://vitalgym.nl/diensten/personal-training-diensten/personal-training-duo/pt-duo-vital-gym-arnhem-aanbod/
+
+http://j-your-fitness.torbara.com/home/home-2.html
 
 ### Acknowledgements
 
-............................................
+I received inspiration for the project from code institute mentor Aaron Sinnott during our first call to discuss the project.
