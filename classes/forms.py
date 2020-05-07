@@ -1,5 +1,7 @@
 from django import forms
 
+#Eamil form
+
 class Email_form(forms.Form):
     """Form to be used to send emails"""
     your_name = forms.CharField(label='Your name', max_length=100)
