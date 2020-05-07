@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block head_js %}
+{% extends "base.html" %} {% load staticfiles %} {% load bootstrap_tags %} {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
     //<![CDATA[
@@ -55,8 +55,8 @@
 </form>
 
 <div class="row">
-    <img src="/static/images/classes-1.jpg" class="col-xs-4 center-block classes" alt="classes-1" />
-    <img src="/static/images/classes-2.jpg" class="col-xs-4 center-block classes" alt="classes-2" />
-    <img src="/static/images/classes-3.jpg" class="col-xs-4 center-block classes" alt="classes-3" />
+    <img src="{% static 'images/classes-1.jpg' %}" class="col-xs-4 center-block classes" alt="classes-1" />
+    <img src="{% static 'images/classes-2.jpg' %}" class="col-xs-4 center-block classes" alt="classes-2" />
+    <img src="{% static 'images/classes-3.jpg' %}" class="col-xs-4 center-block classes" alt="classes-3" />
 </div>
 {% endblock %}

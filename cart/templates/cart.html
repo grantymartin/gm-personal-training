@@ -1,8 +1,8 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %}
+{% extends 'base.html' %} {% load staticfiles %} {% load bootstrap_tags %} {% block content %}
 <h1 class="text-center title">Are you happy with your choices?</h1>
 <h1 class="text-center title">Ready to see the benefits?</h1>
 <div class="row">
-    <img src="/static/images/bg.png" class="center-block products-header" alt="weights" />
+    <img src="{% static 'images/bg.png' %}" class="center-block products-header" alt="weights" />
 </div>
 <div class="row row-flex">
     {% for item in cart_items %}

@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% load staticfiles %} {% load bootstrap_tags %} {% block content %}
+{% extends 'base.html' %} {% load staticfiles %} {% load bootstrap_tags %} {% block head_js %}
+<script src="{% static 'js/emails.js'%}"></script>
+{% endblock %}
+{% block content %}
 <div class="row bg-item">
     <h1>Book your next class now!</h1>
     <h3>Simply just complete the form below and I'll get back to you as soon as possible</h3>
@@ -8,9 +11,9 @@
     </form>
 </div>
 <div class="row">
-    <img src="/static/images/classes-1.jpg" class="col-xs-4 center-block classes" alt="classes-1" />
-    <img src="/static/images/classes-2.jpg" class="col-xs-4 center-block classes" alt="classes-2" />
-    <img src="/static/images/classes-3.jpg" class="col-xs-4 center-block classes" alt="classes-3" />
+    <img src="{% static 'images/classes-1.jpg' %}" class="col-xs-4 center-block classes" alt="classes-1" />
+    <img src="{% static 'images/classes-2.jpg' %}" class="col-xs-4 center-block classes" alt="classes-2" />
+    <img src="{% static 'images/classes-3.jpg' %}" class="col-xs-4 center-block classes" alt="classes-3" />
 </div>
 <h1 class="text-center title">You can find us here below!</h1>
 <div class="row">
@@ -18,5 +21,5 @@
         <iframe id="map" src="https://www.google.co.uk/maps/d/u/0/embed?mid=1hyxsMjnaLtDItPyFUolP-t5uwqzA4Sqh"></iframe>
     </div>
 </div>
-<script src="/static/js/emails.js"></script>
+
 {% endblock %}
